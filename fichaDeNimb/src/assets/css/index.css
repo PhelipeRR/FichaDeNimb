@@ -1,0 +1,105 @@
+/* General CSS */
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans&family=Alegreya+Sans+SC:ital,wght@1,300&display=swap');
+@import './database-animations.css';
+/* @tailwind base; */
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Tfont'; /*Can be any text*/
+  src: local('AirbnbCerealLight'),
+    url('../fonts/Tormenta20x.ttf') format('truetype');
+}
+
+body {
+  margin: 0;
+  font-family: 'Alegreya Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* background-color: #; */
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.mainApp {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#bottom {
+  bottom: 0;
+  background: var(--primary-main, rgb(209, 50, 53));
+  color: var(--primary-contrast, #fff);
+  width: 100%;
+  display: flex;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  flex-direction: column;
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  box-shadow: 0px -2px 5px -1px rgb(0 0 0 / 20%),
+    0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
+  padding: 30px;
+  text-align: center;
+  margin-top: auto;
+}
+
+#bottom a {
+  color: white;
+}
+
+/* Global link styling - uses theme-aware CSS variable */
+/* Links inherit color by default to work better with various backgrounds */
+a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: inherit;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+/* Links that should use theme color explicitly */
+a.theme-link,
+.content-area a:not([class]) {
+  color: var(--link-color, var(--primary-main, #1976d2));
+}
+
+a.theme-link:visited,
+.content-area a:not([class]):visited {
+  color: var(--link-color, var(--primary-main, #1976d2));
+}
+
+a.theme-link:hover,
+.content-area a:not([class]):hover {
+  color: var(--primary-light, #42a5f5);
+  opacity: 1;
+}
+
+@media screen and (max-width: 720px) {
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  .topTabs {
+    display: none !important;
+  }
+}
+
+.hidden {
+  display: none;
+}
